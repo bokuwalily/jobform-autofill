@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "就活フォーム自動入力",
+  "version": "1.0.0",
+  "description": "就活のエントリーフォームを、端末に保存したプロフィールからワンクリック自動入力。氏名・住所・学歴を各社の形式に合わせて。データは送信せず端末内のみ。",
+  "permissions": ["storage"],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "就活フォーム自動入力",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/util.js", "src/matcher.js", "src/filler.js", "src/content.js"],
+      "css": ["src/content.css"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ]
+}

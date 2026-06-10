@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="popup.css" />
+  <title>就活フォーム自動入力</title>
+</head>
+<body>
+  <header class="hdr">
+    <h1>就活フォーム自動入力</h1>
+    <p class="sub">プロフィールを保存しておくと、各社のエントリーフォームでフローティングの「自動入力」ボタンから一括入力できます。</p>
+  </header>
+  <main id="form"></main>
+  <footer class="ftr">
+    <span id="status" class="status"></span>
+    <button id="save" class="btn primary" type="button">保存</button>
+  </footer>
+  <p class="note">データはこの端末のブラウザ内（chrome.storage.local）だけに保存され、外部送信はしません。</p>
+
+  <script src="../src/util.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

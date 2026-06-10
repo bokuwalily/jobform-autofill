@@ -1,0 +1,38 @@
+.jfa-fab {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 2147483647;
+  padding: 12px 18px;
+  font: 600 14px/1 -apple-system, "Hiragino Kaku Gothic ProN", sans-serif;
+  color: #fff;
+  background: #2f6df6;
+  border: none;
+  border-radius: 999px;
+  box-shadow: 0 6px 20px rgba(47, 109, 246, 0.4);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+.jfa-fab:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(47, 109, 246, 0.5); }
+.jfa-fab:active { transform: translateY(0); }
+.jfa-fab:disabled { opacity: 0.6; cursor: default; }
+
+.jfa-toast {
+  position: fixed;
+  right: 20px;
+  bottom: 74px;
+  z-index: 2147483647;
+  max-width: 320px;
+  padding: 12px 16px;
+  font: 500 13px/1.5 -apple-system, "Hiragino Kaku Gothic ProN", sans-serif;
+  color: #0c1b33;
+  background: #fff;
+  border-left: 4px solid #2f6df6;
+  border-radius: 8px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.jfa-toast.jfa-warn { border-left-color: #e5484d; }
+.jfa-toast.jfa-show { opacity: 1; transform: translateY(0); }

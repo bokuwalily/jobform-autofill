@@ -1,0 +1,12 @@
+{
+  "name": "jobform-autofill",
+  "version": "0.1.0",
+  "private": true,
+  "description": "就活エントリーフォーム自動入力 Chrome拡張(MV3)",
+  "scripts": {
+    "test": "node test/matcher.test.js && node test/e2e.test.js && node test/e2r.test.js"
+  },
+  "devDependencies": {
+    "jsdom": "^29.1.1"
+  }
+}

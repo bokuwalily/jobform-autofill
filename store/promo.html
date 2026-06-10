@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --indigo: #4F46E5; --blue: #2563EB; --amber: #FB9D2B; --ink: #0F172A; --slate: #475569;
+  }
+  html, body { width: 1280px; height: 800px; }
+  body {
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", system-ui, sans-serif;
+    background: radial-gradient(1200px 700px at 18% 12%, #EEF2FF 0%, #E7EEFF 40%, #E2E8F8 100%);
+    display: grid; grid-template-columns: 1.02fr 0.98fr; align-items: center;
+    overflow: hidden; position: relative;
+  }
+  /* atmosphere */
+  body::before { content: ""; position: absolute; width: 520px; height: 520px; right: -120px; top: -140px;
+    background: radial-gradient(circle, rgba(91,91,240,.18), transparent 70%); }
+  .left { padding: 0 64px 0 84px; position: relative; z-index: 2; }
+  .brandrow { display: flex; align-items: center; gap: 18px; margin-bottom: 34px; }
+  .brandrow img { width: 76px; height: 76px; filter: drop-shadow(0 10px 22px rgba(37,99,235,.32)); }
+  .brandrow .nm { font-size: 23px; font-weight: 800; color: var(--ink); letter-spacing: .2px; }
+  .brandrow .tag { font-size: 14px; color: var(--slate); margin-top: 3px; font-weight: 600; }
+  h1 { font-size: 56px; line-height: 1.16; color: var(--ink); font-weight: 900; letter-spacing: -1px; }
+  h1 .hl { color: var(--indigo); position: relative; white-space: nowrap; }
+  h1 .hl::after { content:""; position:absolute; left:-2px; right:-2px; bottom:6px; height:14px;
+    background: rgba(251,157,43,.34); z-index:-1; border-radius: 4px; }
+  .sub { margin-top: 22px; font-size: 20px; color: var(--slate); font-weight: 600; line-height: 1.6; }
+  .chips { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+  .chip { background: #fff; border: 1px solid #DCE3F4; border-radius: 999px; padding: 11px 18px;
+    font-size: 15px; font-weight: 700; color: #334155; box-shadow: 0 4px 14px rgba(30,41,89,.06); }
+  .chip b { color: var(--indigo); }
+  .privacy { margin-top: 30px; display: inline-flex; align-items: center; gap: 10px;
+    font-size: 15px; font-weight: 800; color: #15803D; background: #DCFCE7; border-radius: 12px; padding: 11px 18px; }
+
+  /* right: browser mock */
+  .right { position: relative; height: 100%; display: flex; align-items: center; justify-content: center; }
+  .win { width: 560px; height: 600px; background: #fff; border-radius: 22px; overflow: hidden;
+    box-shadow: 0 40px 90px rgba(20,30,70,.28), 0 8px 24px rgba(20,30,70,.16);
+    transform: rotate(-2deg); position: relative; }
+  .bar { height: 46px; background: #0F1730; display: flex; align-items: center; gap: 8px; padding: 0 18px; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .url { margin-left: 14px; background: #26304E; color: #9FB0D8; font-size: 13px; padding: 6px 14px;
+    border-radius: 8px; flex: 1; font-weight: 600; }
+  .formbody { padding: 30px 34px; }
+  .ftitle { font-size: 18px; font-weight: 900; color: var(--ink); margin-bottom: 22px;
+    border-left: 5px solid var(--indigo); padding-left: 12px; }
+  .row { margin-bottom: 18px; }
+  .lab { font-size: 13px; font-weight: 700; color: #64748B; margin-bottom: 7px; }
+  .pair { display: flex; gap: 12px; }
+  .inp { height: 40px; border: 1.5px solid #E2E8F0; border-radius: 10px; flex: 1; display: flex;
+    align-items: center; padding: 0 13px; font-size: 15px; font-weight: 700; color: var(--ink); background: #fff; }
+  .inp.filled { border-color: #C7D2FE; background: #F5F7FF; }
+  .inp .cur { margin-left: auto; color: #34D399; font-weight: 900; }
+  .fab { position: absolute; right: 26px; bottom: 26px; background: linear-gradient(135deg, var(--indigo), var(--blue));
+    color: #fff; font-weight: 800; font-size: 16px; padding: 15px 26px; border-radius: 14px;
+    box-shadow: 0 14px 30px rgba(79,70,229,.45); display: flex; align-items: center; gap: 9px; }
+  .spark { color: #FFD24A; font-size: 19px; }
+  .ping { position: absolute; right: 60px; bottom: 92px; background: #0F172A; color: #fff; font-size: 13px;
+    font-weight: 700; padding: 8px 14px; border-radius: 10px; }
+  .ping::after { content:""; position:absolute; right: 26px; bottom: -6px; width: 12px; height: 12px;
+    background: #0F172A; transform: rotate(45deg); }
+</style></head>
+<body>
+  <div class="left">
+    <div class="brandrow">
+      <img src="../icons/icon512.png" alt="">
+      <div><div class="nm">就活フォーム自動入力</div><div class="tag">Job Form Autofill</div></div>
+    </div>
+    <h1>就活フォーム、<br><span class="hl">ワンクリック</span>で自動入力。</h1>
+    <p class="sub">氏名・住所・学歴を一度登録するだけ。<br>企業ごとに違うエントリーフォームも、まとめて入力。</p>
+    <div class="chips">
+      <span class="chip"><b>カナ</b> 全角/半角 自動変換</span>
+      <span class="chip"><b>電話</b> 3分割対応</span>
+      <span class="chip"><b>郵便</b> 分割ボックス</span>
+      <span class="chip"><b>学歴</b> プルダウン対応</span>
+    </div>
+    <div class="privacy">🔒 データは端末内のみ・外部送信ゼロ</div>
+  </div>
+
+  <div class="right">
+    <div class="win">
+      <div class="bar">
+        <span class="dot" style="background:#FF5F57"></span>
+        <span class="dot" style="background:#FEBC2E"></span>
+        <span class="dot" style="background:#28C840"></span>
+        <span class="url">entry.example.co.jp/regist</span>
+      </div>
+      <div class="formbody">
+        <div class="ftitle">エントリーフォーム</div>
+        <div class="row"><div class="lab">氏名 ※</div><div class="pair">
+          <div class="inp filled">山田</div><div class="inp filled">太郎</div></div></div>
+        <div class="row"><div class="lab">フリガナ ※</div><div class="pair">
+          <div class="inp filled">ヤマダ</div><div class="inp filled">タロウ</div></div></div>
+        <div class="row"><div class="lab">メールアドレス ※</div>
+          <div class="inp filled">shun…@gmail.com <span class="cur">✓</span></div></div>
+        <div class="row"><div class="lab">現住所 ※</div>
+          <div class="inp filled">東京都 豊島区 …</div></div>
+      </div>
+      <div class="ping">4 項目を自動入力しました</div>
+      <div class="fab"><span class="spark">⚡</span> 自動入力</div>
+    </div>
+  </div>
+</body></html>
