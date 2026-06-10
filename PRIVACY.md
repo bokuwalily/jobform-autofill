@@ -41,7 +41,7 @@
 本拡張機能は13歳未満の子どもを対象としていません。
 
 ### お問い合わせ
-ご質問は次の連絡先までお願いします: **contact@example.com**
+ご質問は次の連絡先までお願いします: **bokuwalily@gmail.com**
 
 ### 変更について
 本ポリシーは必要に応じて更新されます。重要な変更がある場合は本ページで告知します。
@@ -54,4 +54,4 @@
 
 Permissions: `storage` (save your profile locally); content-script access to web pages (detect and fill form fields locally — nothing is sent anywhere).
 
-Contact: contact@example.com
+Contact: bokuwalily@gmail.com
