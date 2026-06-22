@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "就活フォーム自動入力",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "就活のエントリーフォームを、端末に保存したプロフィールからワンクリック自動入力。氏名・住所・学歴を各社の形式に合わせて。データは送信せず端末内のみ。",
   "permissions": ["storage"],
   "icons": {

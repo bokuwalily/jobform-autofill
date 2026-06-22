@@ -1,0 +1,46 @@
+<!doctype html>
+<!-- 求人検索/絞り込みページの模倣（goworkship等）。氏名/住所などプロフィール欄は無く、
+     絞り込みチェックボックス＋キーワード検索だけ。ここでボタンを出してはいけない。 -->
+<html lang="ja">
+<head><meta charset="utf-8"><title>募集を見る</title></head>
+<body>
+  <header>
+    <input type="search" name="keyword" placeholder="キーワードで探す">
+  </header>
+  <aside>
+    <h2>働き方</h2>
+    <label><input type="checkbox" name="work" value="remote-only">リモートのみ</label>
+    <label><input type="checkbox" name="work" value="remote-wish">リモート希望</label>
+    <label><input type="checkbox" name="work" value="either">どちらでも可</label>
+    <label><input type="checkbox" name="work" value="office-wish">出社希望</label>
+    <label><input type="checkbox" name="work" value="office-only">出社のみ</label>
+
+    <h2>特徴</h2>
+    <label><input type="checkbox" name="feature" value="direct">直接契約</label>
+    <label><input type="checkbox" name="feature" value="side">副業OK</label>
+    <label><input type="checkbox" name="feature" value="newbiz">新規事業</label>
+    <label><input type="checkbox" name="feature" value="startup">スタートアップ</label>
+    <label><input type="checkbox" name="feature" value="weekend">土日週末OK</label>
+
+    <h2>稼働時間</h2>
+    <label><input type="checkbox" name="days" value="5">週5日</label>
+    <label><input type="checkbox" name="days" value="4">週4日</label>
+    <label><input type="checkbox" name="days" value="3">週3日</label>
+    <label><input type="checkbox" name="days" value="2">週2日</label>
+    <label><input type="checkbox" name="days" value="1">週1日</label>
+
+    <h2>エリア</h2>
+    <label><input type="checkbox" name="area" value="tokyo">東京</label>
+
+    <!-- 並び替え（select だがプロフィール項目には分類されない） -->
+    <select name="order"><option>おすすめ順</option><option>新着順</option></select>
+  </aside>
+  <main>
+    <article>
+      <h3>次世代のAI人事プラットフォームに関わるプロダクトエンジニアを募集</h3>
+      <button type="button">お気に入り追加</button>
+      <button type="button">気になる！</button>
+    </article>
+  </main>
+</body>
+</html>

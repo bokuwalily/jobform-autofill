@@ -276,8 +276,6 @@
 
   function mountButton() {
     if (document.querySelector(".jfa-fab")) return;
-    const n = document.querySelectorAll("input:not([type=hidden]):not([type=submit]):not([type=button]), textarea, select").length;
-    if (n < 3) return;
     const btn = document.createElement("button");
     btn.className = "jfa-fab"; btn.type = "button"; btn.textContent = "自動入力";
     btn.title = "保存したプロフィールでこのフォームを埋める";
@@ -285,6 +283,33 @@
     document.body.appendChild(btn);
   }
 
-  if (document.body) mountButton();
-  else window.addEventListener("DOMContentLoaded", mountButton);
+  // ボタン表示判定。入力欄の「個数」ではなく「プロフィール項目に分類できる欄の数」で見る。
+  // 求人検索・絞り込みページ（チェックボックスが並ぶだけ＝氏名/住所等に分類されない）では出さない。
+  // 本物のエントリーフォームは氏名・メール等で容易に2件以上に分類されるので、しきい値=2で十分弁別できる。
+  const MIN_CLASSIFIED = 2;
+  const TEXT_FIELDS = "input:not([type=hidden]):not([type=submit]):not([type=button]):not([type=reset]):not([type=image]):not([type=file]):not([type=password]):not([type=radio]):not([type=checkbox]), textarea, select";
+  function looksLikeForm() {
+    let n = 0;
+    for (const el of document.querySelectorAll(TEXT_FIELDS)) {
+      if (classifyField(buildContext(el)) && ++n >= MIN_CLASSIFIED) return true;
+    }
+    return false;
+  }
+  function evaluateButton() {
+    const fab = document.querySelector(".jfa-fab");
+    if (looksLikeForm()) { if (!fab) mountButton(); }
+    else if (fab) fab.remove();
+  }
+
+  // SPA（goworkship 等）は一覧↔応募フォームをページ遷移なしで切替えるため、DOM変化を監視して出し入れする。
+  // ボタン/トースト自身の追加でも発火するが、しきい値判定は冪等なので副作用はない（debounceで頻度も抑える）。
+  let evalTimer = null;
+  const scheduleEval = () => { clearTimeout(evalTimer); evalTimer = setTimeout(evaluateButton, 400); };
+  function startWatching() {
+    evaluateButton();
+    try { new MutationObserver(scheduleEval).observe(document.body, { childList: true, subtree: true }); } catch (_) {}
+  }
+
+  if (document.body) startWatching();
+  else window.addEventListener("DOMContentLoaded", startWatching);
 })();
