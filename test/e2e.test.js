@@ -12,7 +12,7 @@ const profile = {
   lastName: "山田", firstName: "太郎", lastNameKana: "ヤマダ", firstNameKana: "タロウ",
   birthYear: "2003", birthMonth: "10", birthDay: "17", gender: "男性",
   postalCode: "1710031", prefecture: "東京都", city: "豊島区", addressLine: "目白2-12-6", building: "アネモス目白101",
-  phone: "09012345678", email: "contact@example.com",
+  phone: "09012345678", email: "taro.yamada@example.com",
   university: "法政大学", faculty: "経済学部", gradYear: "2028", gradMonth: "3",
   schoolType: "大学", schoolFounder: "私立", grade: "大学3年", bunri: "文系", academicField: "経済",
   gradStatus: "卒業見込み", jobStartYM: "2028年4月",
@@ -52,12 +52,12 @@ if (!fab) { console.log("✗ ボタン未生成"); process.exit(1); }
     ["dpref", "東京都"], ["dcity", "豊島区"],
     // 携帯のみ入力・自宅(stale携帯番号)はクリア
     ["dh1", ""], ["dh2", ""], ["dh3", ""],
-    ["dm1", "090"], ["dm2", "1717"], ["dm3", "0135"],
+    ["dm1", "090"], ["dm2", "1234"], ["dm3", "5678"],
     // メール主+確認、メール2はスキップ
-    ["dmail", "contact@example.com"], ["dmailc", "contact@example.com"],
+    ["dmail", "taro.yamada@example.com"], ["dmailc", "taro.yamada@example.com"],
     ["dmail2", ""], ["dmail2c", ""],
     // axol 模倣：サブラベル＋placeholder のメール本体/確認用
-    ["amail", "contact@example.com"], ["amailc", "contact@example.com"]
+    ["amail", "taro.yamada@example.com"], ["amailc", "taro.yamada@example.com"]
   ];
   let pass = 0, fail = 0;
   for (const [id, expected] of checks) {

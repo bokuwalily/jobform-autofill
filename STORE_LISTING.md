@@ -71,7 +71,7 @@
 
 ## 連絡先
 
-- サポートメール: bokuwalily@gmail.com
+- サポートメール: contact@bokuwalily.com
 
 ---
 

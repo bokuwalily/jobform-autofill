@@ -66,7 +66,7 @@ function detectDateRole(el) {
   return null;
 }
 
-// 数字を複数ボックスに分割して入れる（電話 090-1717-0135 / 郵便 140-0014）。
+// 数字を複数ボックスに分割して入れる（電話 090-1234-5678 / 郵便 140-0014）。
 // 電話は桁数から定番パターンで分割（boxのmaxlengthが過大なケースを誤らない）。
 function fillSplitNumber(els, value, kind) {
   const digits = String(value || "").replace(/\D/g, "");

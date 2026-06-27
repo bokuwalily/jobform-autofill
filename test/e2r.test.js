@@ -13,7 +13,7 @@ const profile = {
   lastName: "山田", firstName: "太郎", lastNameKana: "ヤマダ", firstNameKana: "タロウ",
   birthYear: "2003", birthMonth: "10", birthDay: "17", gender: "男性",
   postalCode: "1710031", prefecture: "東京都", city: "豊島区", addressLine: "目白2-12-6", building: "アネモス目白101",
-  phone: "09012345678", email: "contact@example.com",
+  phone: "09012345678", email: "taro.yamada@example.com",
   university: "法政大学", faculty: "経済学部", gradYear: "2028", gradMonth: "3",
   schoolFounder: "私立"
 };
@@ -41,8 +41,8 @@ if (!fab) { console.log("✗ ボタン未生成"); process.exit(1); }
     // 海外注記が同居していても国内欄は埋まる
     ["zip1", "171"], ["zip2", "0031"], ["zipov", ""],
     ["city", "豊島区"], ["addr", "目白2-12-6"], ["bldg", "アネモス目白101"],
-    ["ph1", "090"], ["ph2", "1717"], ["ph3", "0135"], ["phov", ""],
-    ["mail", "contact@example.com"], ["mailc", "contact@example.com"]
+    ["ph1", "090"], ["ph2", "1234"], ["ph3", "5678"], ["phov", ""],
+    ["mail", "taro.yamada@example.com"], ["mailc", "taro.yamada@example.com"]
   ];
   let pass = 0, fail = 0;
   for (const [id, expected] of checks) {
